@@ -1,0 +1,60 @@
+{
+  "name": "@jrgarcia23/image-animator",
+  "version": "0.1.0",
+  "description": "Animate static images with reveal overlays and number counters. Visual drag-and-drop editor included for pixel-perfect positioning.",
+  "keywords": [
+    "react",
+    "animation",
+    "image",
+    "overlay",
+    "counter",
+    "scroll",
+    "intersection-observer",
+    "editor",
+    "drag-and-drop"
+  ],
+  "author": "JR García <jrgarcia@flameanalytics.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jrgarcia23/image-animator.git"
+  },
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://npm.pkg.github.com"
+  }
+}
