@@ -397,6 +397,37 @@ function EditableBox({
         pointerEvents: "none",
       }}>{tooltip}</div>
 
+      {/* In edit mode, Counter boxes render the FINAL value with their real
+          styles (fontSize, fontWeight, color, align) over a white bg so the
+          user can compare the rendered number against the underlying image
+          and tweak the font without leaving edit mode. */}
+      {e.kind === "counter" && (
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: e.background ?? "#fff",
+            display: "flex",
+            alignItems: "center",
+            justifyContent:
+              e.align === "left" ? "flex-start" :
+              e.align === "right" ? "flex-end" : "center",
+            color: e.color,
+            fontFamily: e.fontFamily ?? "inherit",
+            fontSize: e.fontSize,
+            fontWeight: e.fontWeight,
+            letterSpacing: "-0.02em",
+            lineHeight: 1,
+            fontVariantNumeric: "tabular-nums",
+            pointerEvents: "none",
+            outline: `1px dashed ${themeColor}66`,
+            outlineOffset: -1,
+          }}
+        >
+          {e.prefix}{formatNumber(e.value, e.decimals, e.thousandsSep)}{e.suffix}
+        </div>
+      )}
+
       {handle("nw", { left: -6, top: -6 })}
       {handle("n",  { left: "50%", top: -6, transform: "translateX(-50%)" })}
       {handle("ne", { right: -6, top: -6 })}
